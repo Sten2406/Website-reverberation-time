@@ -22,3 +22,4 @@ packages_to_install = [
 
 for package in packages_to_install:
     subprocess.call(["pip", "install", package])
+print('Alles is gedownload')
