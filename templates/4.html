@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataframe</title> <!-- Titel in zoekbalk-->
+</head>
+<body>
+<form action="/heatmap" method="post">
+    <h1>DataFrame</h1> <!-- Header op website-->
+    
+    {{ html_table|safe }} <!-- laat de tabel op alle gegevens zijn als laatste check -->
+	<button type="submit">Maak heatmap</button> <!-- roept /heatmap op in pyhton-->
+	</form>
+</body>
+</html>

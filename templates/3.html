@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heatmap</title> <!-- titel in zoekbalk -->
+</head>
+<body>
+    <h1>Heatmap</h1> <!-- header op website-->
+    <img src="{{ plot }}" alt="plot"> <!-- laat de plot van db level tegen tijd zien -->
+    <p>Data is succesvol opslagen</p> <!--tekst op website -->
+	<form action="/herstart" method="get"> 
+	<button type="submit">Metingen is goed</button> <!--De knop voor als de metingen goed is -->
+    </form> 
+	<form action="/nietgoed" method="get"> 
+	<button type="submit">Metingen is  niet goed</button> <!--De knop voor als de metingen niet goed is -->
+    </form>
+	</form>
+	
+</body>
+</html>

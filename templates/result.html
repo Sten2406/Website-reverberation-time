@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Resultaten</title> <!-- Titel in de zoekbalk-->
+</head>
+<body>
+    <h1>Hieronder staan de metingen die je kan doen, elke hiervan heeft een lengte voor de hokjes die in dezelfde volgorde daaronder staan in meter</h1> <!-- Header op website-->
+    <form action="/hokjes" method="POST"> <!-- maakt duidelijk wat we moeten op roepen in python -->
+		<ul>
+			{% for meting in aantal_metingen %}
+			<li>{{ meting }}</li>
+			
+			{% endfor %} <!-- laat alle meet mogelijkheden in de lijst aantal_metingen (van python) zien, door middel van een for loop-->
+			<p> met de lengte </p>
+			{% for l in lengte %}
+			<li>{{ l }}</li>
+			{% endfor %} <!-- laat alle lengte mogelijkheden in de lijst lengte (van python) zien, door middel van een for loop-->
+			</ul>
+		<label for="lengte">Hoeveel metingen wil je doen?, kies uit de opties:</label> 
+		<input type="number" id="lengte_metingen" name="lengte_metingen" step="1" required><br><br> <!-- vraagt hoeveel metingen je wil doen (keuze uit de bovenstaande opties -->
+		<button type="submit">Maak de plattegrond</button> <!-- roept /hokjes op wanneer op de knop gedrukt-->
+    </form>
+</body>
+</html>
+
+
+  
+  
+
+ 
+    

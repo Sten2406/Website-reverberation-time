@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meetgegevens</title> <!--Maakt de tekst zichbaar in de zoekbalk-->
+</head>
+<body>
+    <h1>Voer de afmetingen van de kamer in:</h1>
+    <form action="/berekeningen" method="POST"> <!-- zorgt dat berekingen wordt opgeroepen in python-->
+        <label for="lengte">Lengte van de kamer in meter:</label>
+        <input type="number" id="lengte" name="lengte" step="0.01" required><br><br>
+        <label for="breedte">Breedte van de kamer in meter:</label>
+        <input type="number" id="breedte" name="breedte" step="0.01" required><br><br> <!-- vraagt voor de lengte en breedte van de kamer in meter-->
+		 <label for="aantal">Hoeveel metingen wil je per plek doen:</label>
+		<input type='number'id = 'aantal'name = 'aantal'step= '1' required><br><br> <!-- vraagt hoeveel metingen je per plek gaat doen-->
+		<label for="aantal">Op welke frequentie ga je meten in Hz:</label>
+		<input type='number'id= 'frequentie'name = 'frequentie' step '1' required><br><br> <!-- vraagt op welke frequentie je gaat meten -->
+        <button type="submit">Bereken aantal metingen</button> <!--De knop om alle gegevens te versturen naar python-->
+    </form>
+</body>
+</html>

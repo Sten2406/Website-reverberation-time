@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plattegrond van jouw ruimte</title> <!-- titel in zoekbalk-->
+	
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat({{ aantal_hokjes_lengte }}, 50px); /*Maakt alle hokjes aan */
+            grid-template-rows: repeat({{ aantal_hokjes_breedte }}, 50px); 
+            grid-gap: 5px; <!--maakt de grid van met lengte aantal_hokjes_lengte (van python) en breedte aantal_hokjes_breedte (python) lengte en breedte van 1 hokje is 50 px en gat er tussen is 5 px -->
+        }
+        .box {
+            width: 50px; /* breedte van je hokjes */
+            height: 50px; /* lengte van je hokjes */
+            border: 1px solid black; /* maak een rand om je hokje */ <!-- maakt de rand zwart en 1 px dik-->
+            cursor: pointer; <!--maakt de cursor een pointer als je boven een hokje zit -->
+        }
+        .box.selected {
+            background-color: black; <!--als je een hokje aantikt wordt hij zwart -->
+        }
+    </style>
+</head>
+<body>
+	<p> Het aantal hokjes in de lengte</p>
+	<p>{{ aantal_hokjes_lengte }} </p><br><br>
+	<p> Het aantal hokjes in de breedte</P>
+	<p> {{ aantal_hokjes_breedte }} </p><br><br>
+	<p> De lengte en breedte van 1 hokje in meter</p>
+	<p> {{ lengte }} </p> <!-- laat alle meetgegevens zijn die berekend zijn in pyhton-->
+    <h2> Geef aan op welke plekken je niet gaat meten</h2> 
+    <div class="grid-container">
+        
+        {{ grid_html | safe }} <!-- laat grid_html van python, hierdoor weet html hoe de coordinaten werken -->
+    </div>
+
+    <form method="POST" action="/plattegrond"> <!-- maakt duidelijk wat we moeten oproepen-->
+        <input type="hidden" id="selected_blocks" name="selected_blocks"><br><br> <!-- maakt een verstopte input-->
+        <button type="button" onclick="sendSelectedBlocks()">Geef de plattegrond door</button> <!-- maakt de knop die alles verzend naar python -->
+    </form>
+
+    <script>
+        // Functie om de hokjes aan en uit te tikken
+        function toggleSelection(box) {
+            box.classList.toggle('selected');
+        }
+
+        // Functie om de data naar python te sturen
+        function sendSelectedBlocks() {
+            let selectedBlocks = [];
+            let selectedBoxes = document.querySelectorAll('.box.selected');
+            selectedBoxes.forEach(box => {
+                selectedBlocks.push(box.id);
+            });
+            document.getElementById('selected_blocks').value = JSON.stringify(selectedBlocks);
+            document.getElementById('selected_blocks').form.submit();
+        }
+    </script>
+</body>
+</html>

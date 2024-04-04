@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heatmap</title>
+</head>
+<body>
+    <h1>Heatmap</h1>
+    <img src="{{ plot }}" alt="plot"> <!-- laat de plot van de decibel tegen de tijd-->
+    <p>De nagalm tijd is {{ t }} seconde </p> <!-- Laat de nagalm tijd berekend met python -->
+	<form action="/herstart" method="get"> 
+	<button type="submit">Metingen is goed</button> <!--De knop voor als de metingen goed is -->
+    </form>
+	<form action="/nietgoed" method="get"> 
+	<button type="submit">Metingen is  niet goed</button> <!--De knop voor als de metingen niet goed is -->
+    </form>
+	</form>
+	<form action="/opslaan" method="get"> 
+	<button type="submit">Sla data op</button> <!-- De knop om de data op te slaan -->
+    </form>
+</body>
+</html>
